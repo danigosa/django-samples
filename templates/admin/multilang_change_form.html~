@@ -1,0 +1,21 @@
+{% extends "admin/change_form.html" %}
+{% load web_extras %}
+{% load i18n %}
+
+
+{% block form_top %}
+    <div class="m-btn-strip">
+        <h2 style="color: #1e90ff">{% trans 'INFO: Current Language ' %} {% current_lang %} ({{ LANGUAGE_CODE }})</h2>
+        <div class="m-btn-group">
+
+            {% if LANGUAGE_CODE == 'en' %}
+                <a href="/en{{ request.path }}" class="m-btn gray disabled">{% trans 'English' %}</a>
+                <a href="/es{{ request.path }}" class="m-btn blue">{% trans 'Spanish' %}</a>
+            {% else %}
+                <a href="/en{{ request.path }}" class="m-btn blue ">{% trans 'English' %}</a>
+                <a href="/es{{ request.path }}" class="m-btn gray disabled">{% trans 'Spanish' %}</a>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}
